@@ -3,14 +3,6 @@ import mysql.connector
 import azure.functions as func
 import os
 
-# config = {
-#   'host':'serveur-mysql-library2.mysql.database.azure.com',
-#   'user':'nous@serveur-mysql-library2',
-#   'password':'123Codons',
-#   'database':'library',
-#   'client_flags': [mysql.connector.ClientFlag.SSL],
-#   'ssl_ca':'C:\\Users\\utilisateur\\Documents\\python\\deuxieme_partie\\library_azur\\BaltimoreCyberTrustRoot.crt(1).pem'
-# }
 
 
 config = {
