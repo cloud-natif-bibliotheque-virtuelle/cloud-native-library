@@ -17,6 +17,11 @@ configuration = {
   'client_flags': [mysql.connector.ClientFlag.SSL],
   'ssl_ca': os.environ['sslibrary']
 }
+storage = {
+    'account': os.environ['account_storage'],
+    'key' : os.environ['key_storage'],
+    'container': os.environ['container_storage']
+}
 
 logging.basicConfig(
     filename="logging_main.log",
@@ -60,10 +65,10 @@ def main(args,config):
     logging.debug("entrée dans la fonction main")
     nom_fichier(args.cible)
     blobclient=BlobServiceClient(
-        f"https://{config['storage']['account']}.blob.core.windows.net",
-        config["storage"]["key"],
+        f"https://{storage['account']}.blob.core.windows.net",
+        storage["key"],
         logging_enable=False)
-    containerclient=blobclient.get_container_client(config["storage"]["container"])
+    containerclient=blobclient.get_container_client(storage["container"])
 
     try:
         conn = mysql.connector.connect(**configuration)
@@ -108,7 +113,6 @@ def main(args,config):
 if __name__=="__main__":
     #Parser pour utiliser dans son terminal, mode d'emplois dans requirement.txt
     parser=argparse.ArgumentParser("Logiciel d'archivage de documents")
-    parser.add_argument("-cfg",default="config.ini",help="chemin du fichier de configuration")
     parser.add_argument("-lvl",default="info",help="niveau de log")
     subparsers=parser.add_subparsers(dest="action",help="type d'operation")
     subparsers.required=True
@@ -120,7 +124,7 @@ if __name__=="__main__":
     args=parser.parse_args()
 
     loglevels={"debug":logging.DEBUG, "info":logging.INFO, "warning":logging.WARNING, "error":logging.ERROR, "critical":logging.CRITICAL}
-    print(loglevels[args.lvl.lower()])
+    
     logging.basicConfig(level=loglevels[args.lvl.lower()])
 
     config=configparser.ConfigParser()
