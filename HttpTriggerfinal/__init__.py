@@ -2,7 +2,6 @@ import logging
 import mysql.connector
 import azure.functions as func
 import os
-import json
 
 
 
@@ -18,7 +17,7 @@ config = {
 
 
 def listelivre():
-    logging.info('connection à la base de donné')
+    logging.info('connection à la base de données')
     conn = mysql.connector.connect(**config)
     cursor = conn.cursor()
     cursor.execute("""
@@ -53,7 +52,7 @@ def liste_html():
     for livre in livres :
         if livre != livres[-1]:
             html_liste_livres += livre
-            html_liste_livres += """</span><br><span class="Liste livres">"""
+            html_liste_livres += """</span><br> <span class="Liste livres">"""
         else:
             html_liste_livres += livre
             html_liste_livres += "</span>"
@@ -72,6 +71,12 @@ def result_html():
         </head>
         <h3>Voici la liste des livres présents dans la base de donnée</h3>
         <body>
+            <style>
+        ul
+        {
+            line-height:70px;
+        }
+        </style>
         <div>
             <ul>"""+liste_html()+"""</ul>
         </div>
