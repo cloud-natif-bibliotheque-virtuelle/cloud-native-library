@@ -75,7 +75,7 @@ def result_html():
         <style>
         ul
         {
-            line-height:100px;
+            line-height:70px;
         }
         </style>
         <div>
