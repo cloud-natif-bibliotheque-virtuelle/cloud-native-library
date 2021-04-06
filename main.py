@@ -57,7 +57,7 @@ def nom_fichier(cible):
     return chemin_fichier[-1]
 
 
-def main(args,config):
+def main(args):
     """
     Fait le liens avec le config.ini
     Fait appel aux fonctions (upload/download/ list).
@@ -128,6 +128,6 @@ if __name__=="__main__":
     logging.basicConfig(level=loglevels[args.lvl.lower()])
 
     config=configparser.ConfigParser()
-    config.read(args.cfg)
+    
 
-    sys.exit(main(args,config))
+    sys.exit(main(args))

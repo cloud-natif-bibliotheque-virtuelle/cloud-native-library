@@ -3,7 +3,6 @@ import json
 import mysql.connector
 import azure.functions as func
 from mysql.connector import errorcode
-import sys
 import os.path
 
 
