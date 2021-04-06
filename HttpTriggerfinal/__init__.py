@@ -71,7 +71,7 @@ def result_html():
         </head>
         <h3>Voici la liste des livres présents dans la base de donnée</h3>
         <body>
-            <style>
+        <style>
         ul
         {
             line-height:70px;
