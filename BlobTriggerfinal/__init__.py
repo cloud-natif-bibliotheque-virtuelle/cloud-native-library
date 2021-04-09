@@ -19,9 +19,11 @@ def main(myblob: func.InputStream):
     logging.info(f"Python blob trigger function processed blob \n"
                  f"Name: {myblob.name}\n"
                  f"Blob Size: {myblob.length} bytes")
+    # 300 = limite pour ne lire que les 300 premiers mots du blob
     read = myblob.read(300).decode('utf-8')
     mots = read.split()
     dico_mots = {}
+    # TODO creation d'un dictionnaire de mots (prevoir autre table sql par la suite)
     for mot in set(mots):
         dico_mots[mot]=mots.count(mot)
     dico_mots_json= json.dumps(dico_mots)
@@ -42,9 +44,10 @@ def main(myblob: func.InputStream):
 
     url_stock = 'https://librarystokage2.blob.core.windows.net/'+ myblob.name
     logging.info(f"l'url cherché dans la base {url_stock}")
-    cursor.execute("UPDATE liste_livres SET infos = (%s) WHERE url_blob = (%s)", (dico_mots_json, url_stock,))
+    cursor.execute("UPDATE liste_livres SET nombre_mot = (%s) WHERE url_blob = (%s)",
+                  (dico_mots_json, url_stock,))
+    logging.info(f"action du cursor.execute pour update = ok")
     conn.commit()
     cursor.close()
     conn.close()
     logging.info(f"La table liste_livres a bien été mise à jour.")
-    # return json.dumps(read)
