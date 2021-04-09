@@ -19,7 +19,9 @@ Pour l'activer : F5 en local ou la flèche dans Azure pour deploy.
 
 
 
-**HTTP TRIGGER INIT : **
+
+
+**HTTP TRIGGER INIT :**
 
 Pour afficher la liste des livres via la def main reliée à la database. Est relié avec la page HTML ' index 1' pour lister les livres en liens cliquable.
 
@@ -28,13 +30,17 @@ Pour l'activer : F5 en local ou la flèche dans Azure pour deploy.
 
 
 
-**HTTP TRIGGER INIT : **
+
+
+**HTTP TRIGGER INIT :**
 
 Via le liens cliquable, récupère les informations dans la database, va afficher les informations du livre (titre, informations, URL, liste de mots que le livre contient).
 
 Est relié avec la page HTML ' index 2' pour lister les livres en liens cliquable.
 
 Pour l'activer : F5 en local ou la flèche dans Azure pour deploy.
+
+
 
 
 
