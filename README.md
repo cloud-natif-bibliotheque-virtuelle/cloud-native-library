@@ -3,7 +3,7 @@
 
 **Main.py (Script upload) :**
 
-Pour upload le livre dans le blob , lui donner un titre, lui ajouter des informations, un url et les mots que le livre contient.
+Pour upload le livre dans le blob , lui donner un titre, lui ajouter l'auteur, un url et les mots que le livre contient.
 
 Pour l'activer 'python main.py upload "chemin du fichier"'
 
@@ -21,9 +21,9 @@ Pour l'activer : F5 en local ou la flèche dans Azure pour deploy.
 
 
 
-**HTTP TRIGGER INIT :**
+**HTTP TRIGGER INIT 1 (route api/books) :**
 
-Pour afficher la liste des livres via la def main reliée à la database. Est relié avec la page HTML ' index 1' pour lister les livres en liens cliquable.
+Pour afficher la liste des livres via la def main reliée à la database. Est relié avec la page HTML ' index 1' pour lister les livres en liens cliquables.
 
 Pour l'activer : F5 en local ou la flèche dans Azure pour deploy.
 
@@ -32,11 +32,11 @@ Pour l'activer : F5 en local ou la flèche dans Azure pour deploy.
 
 
 
-**HTTP TRIGGER INIT :**
+**HTTP TRIGGER INIT 2 (route api/books/titre):**
 
-Via le liens cliquable, récupère les informations dans la database, va afficher les informations du livre (titre, informations, URL, liste de mots que le livre contient).
+Via le liens cliquable, récupère les informations dans la database, va afficher les informations du livre (titre, l'auteur, URL, liste de mots que le livre contient).
 
-Est relié avec la page HTML ' index 2' pour lister les livres en liens cliquable.
+Est relié avec la page HTML ' index 2' qui affiche les infos du livre et permet de télécharger le livre (via lien cliquable).
 
 Pour l'activer : F5 en local ou la flèche dans Azure pour deploy.
 
