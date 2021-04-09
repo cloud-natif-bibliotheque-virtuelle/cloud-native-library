@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Livre</title>
+  
+</head>
+<body>
+ 
+<center><p> Titre du livre : {{rows[1]}} </p></center>
+
+<!-- row2 correspond a l'auteur -->
+<center><p> Auteur du livre : {{rows[2]}} </p></center> 
+<!-- Futur url de telechargement -->
+<center><p> URL pour telecharger le livre: <a href="{{rows[3]}}">Cliquez ici pour telecharger le livre </a></p></center>
+
+<center><p> Mots contenus dans le livre:</p></center>
+<ul style="list-style-type: none">
+<!-- Boucle pourafficher chaque mots et sa fréquence -->
+{% for mot in rows[4][1:-1].split(", ") %}
+  <center><li>{{ mot }}</a></li></center>
+{% endfor %}
+</ul>
+
+
+</body>
+</html>
