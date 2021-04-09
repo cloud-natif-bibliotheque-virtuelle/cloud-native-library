@@ -9,6 +9,6 @@ CREATE TABLE liste_livres(
     titre VARCHAR(255),
     infos VARCHAR(255),
     url_blob VARCHAR(255),
-    nombre_par_mot VARCHAR(255)
+    nombre_mot LONGTEXT
 );
 -- SELECT * FROM library.liste_livres;
